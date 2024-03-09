@@ -12,6 +12,7 @@ function draw() {
   let i = 0;
   while (i<40) {
     drawRain(random(5,400),random(90,250),random(0.2,1))
+    drawFlower(random(0,400), random(350,400),random(0,255),random(0,255),random(0,255),random(0.2,0.8))
     i++;
   }
   
@@ -28,6 +29,20 @@ function drawRain(x,y,s) {  //raindrop
   triangle(-120,85,-100,50,-80,85)
  
   pop()
+}
+
+function drawFlower(x,y,r,g,b,s) {
+  
+  for (let rot = 0; rot < 2*PI; rot += 2*PI/10) {
+    push();
+    translate(x,y)
+    fill(r,g,b)
+    scale(s)
+    rotate(rot);
+    ellipse(0, 10, 10, 20);
+    pop();
+    
+  }
 }
 
 function drawBackground(x,y) {
